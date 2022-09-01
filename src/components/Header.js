@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import { Home, AddToPhotos } from "@mui/icons-material";
+import ChatIcon from "@mui/icons-material/Chat";
 import { Avatar } from "@mui/material";
 
 export default function Header({ upload, profileImg }) {
@@ -35,7 +35,10 @@ export default function Header({ upload, profileImg }) {
             </Link>
           </div>
           <div className="icon">
-            <FavoriteRoundedIcon />
+            <Link to="chats">
+              {" "}
+              <ChatIcon />
+            </Link>
           </div>
           <div
             className="icon"

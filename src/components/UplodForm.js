@@ -56,7 +56,7 @@ export default function UplodForm({ value, profileImg }) {
         caption: postcaption,
         avatar: profileImg,
         post: url,
-        username: "username",
+        username: user.displayName,
         uid: user.email,
       });
       console.log(post);

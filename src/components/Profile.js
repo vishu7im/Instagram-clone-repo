@@ -130,7 +130,7 @@ function Profile({ profileImg, setprofileImg }) {
                 />
               </div>
               <div className="profile_username">
-                <h1>{user?.email}</h1>
+                <h1>{user?.displayName}</h1>
               </div>
               <div className="clearfix">
                 <button

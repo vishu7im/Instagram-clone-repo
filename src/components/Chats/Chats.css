@@ -1,0 +1,160 @@
+.chat_container {
+  display: flex;
+  margin: 1% auto;
+  height: 80vh;
+  width: 70vw;
+  background-color: #ffffff;
+}
+
+.chat_heading {
+  display: flex;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-radius: 0px 0px;
+  justify-content: center;
+  padding: 3%;
+}
+.chat_heading h1 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.chat_box {
+  width: 100%;
+}
+.User_Box {
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.User_Box strong {
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: cursive;
+}
+.Chat_Area {
+  background-color: #ffffff;
+  height: 75%;
+  clear: both;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.SendMessage {
+  height: 13%;
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.chatbox_heading {
+  height: 100%;
+}
+.SendMessage input[type="text"] {
+  border-radius: 10px;
+  background: #ffffff;
+  width: 100%;
+}
+.input-ig {
+  width: 80%;
+}
+.iconIG {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* css site  */
+
+.Recive {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 3%;
+}
+.img_cont_msg {
+  height: 40px;
+  width: 40px;
+}
+.msg_cotainer {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  border-radius: 25px;
+  background-color: #82ccdd;
+  padding: 10px;
+  position: relative;
+}
+.msg_time {
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+}
+.user_img_msg {
+  height: 40px;
+  width: 40px;
+  border: 1.5px solid #f5f6fa;
+  border-radius: 20px;
+}
+
+/* send  */
+.Send {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 3%;
+}
+.msg_cotainer_send {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 10px;
+  border-radius: 25px;
+  background-color: #78e08f;
+  padding: 10px;
+  position: relative;
+}
+
+.send_time {
+  display: flex;
+  justify-content: end;
+}
+
+.Chat_user {
+  font-size: 11px;
+  font-weight: 900;
+}
+.iconIG button {
+  border-radius: 20px;
+  background-color: rgb(141, 138, 138);
+}
+
+@media screen and (max-width: 680px) {
+  .sent_msg {
+    width: 100%;
+  }
+  .received_msg {
+    width: 100%;
+  }
+  .chat_container {
+    width: 90vw;
+    height: 90vh;
+  }
+  .received_withd_msg {
+    width: 100%;
+  }
+  .SendMessage input[type="text"] {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .chat_container {
+    width: 100vw;
+    height: 90vh;
+  }
+}

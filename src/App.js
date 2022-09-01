@@ -14,6 +14,7 @@ import { AuthContext } from "./Context/UserContext";
 import ProtectedRoues from "./components/ProtectedRoues";
 import { storage } from "./components/Firebase";
 import { ref, getDownloadURL } from "firebase/storage";
+import Chats from "./components/Chats/Chats";
 
 function App() {
   const [UploadToggal, setUploadToggal] = useState(false);
@@ -73,6 +74,14 @@ function App() {
           element={
             <ProtectedRoues>
               <Error />
+            </ProtectedRoues>
+          }
+        />
+        <Route
+          path="/chats"
+          element={
+            <ProtectedRoues>
+              <Chats profile={userProfilepic} />
             </ProtectedRoues>
           }
         />

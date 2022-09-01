@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./login.css";
 import { AuthContext } from "../Context/UserContext";
 import { useNavigate } from "react-router-dom";
+import GoogleButton from "react-google-button";
 export default function LoginForm() {
-  const [loadder, setloadder] = useState(false);
-  const [loginswitch, setswitch] = useState(false);
-  const [logininput, setlogininput] = useState({ pwd: "", email: "" });
-  const [signupinput, setsignupinput] = useState({ pwd: "", email: "" });
-
-  const { createuser, loginuser, user } = AuthContext();
+  const { GoogleSignIN, user } = AuthContext();
 
   const navigate = useNavigate();
 
@@ -20,53 +16,8 @@ export default function LoginForm() {
     }
   }, [user]);
 
-  const signup = (e) => {
-    let name, value;
-    name = e.target.name;
-    value = e.target.value;
-    setsignupinput({ ...signupinput, [name]: value });
-  };
-
-  const Createuser = async (e) => {
-    e.preventDefault();
-    setloadder(true);
-
-    try {
-      await createuser(signupinput.email, signupinput.pwd);
-    } catch (error) {
-      alert(error.message);
-    }
-    setloadder(false);
-    setsignupinput({ pwd: "", email: "" });
-    navigate("/home");
-  };
-  const Loginuser = async (e) => {
-    e.preventDefault();
-    setloadder(true);
-
-    try {
-      await loginuser(logininput.email, logininput.pwd);
-    } catch (error) {
-      alert(error.message);
-    }
-    console.log("userlogin");
-    setloadder(false);
-    setlogininput({ pwd: "", email: "" });
-    navigate("/home");
-  };
-
-  const login = (e) => {
-    let name, value;
-    name = e.target.name;
-    value = e.target.value;
-    setlogininput({ ...logininput, [name]: value });
-  };
-
-  const changetoggal = () => {
-    loginswitch === true ? setswitch(false) : setswitch(true);
-
-    setlogininput({ pwd: "", email: "" });
-    setsignupinput({ pwd: "", email: "" });
+  const googleAuth = () => {
+    GoogleSignIN();
   };
 
   return (
@@ -91,100 +42,9 @@ export default function LoginForm() {
             ></path>
           </svg>
         </div>
-        <div className="form_toggal">
-          <label className="switch">
-            <input
-              type="checkbox"
-              onClick={() => {
-                changetoggal();
-              }}
-            />
-            <span className="slider round"></span>
-          </label>
+        <div className="Google_btn">
+          <GoogleButton onClick={googleAuth} />
         </div>
-        {loginswitch === true ? (
-          <div className="signup auth_form_box">
-            <form>
-              <div className="container">
-                <label htmlFor="email">
-                  <b>Email</b>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Email"
-                  name="email"
-                  required
-                  value={signupinput.email}
-                  onChange={signup}
-                />
-
-                <label htmlFor="psw">
-                  <b>Password</b>
-                </label>
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  name="pwd"
-                  value={signupinput.pwd}
-                  required
-                  onChange={signup}
-                />
-
-                <div className="clearfix">
-                  <button
-                    type="submit"
-                    className="signupbtn signup_input Auth_btn"
-                    onClick={Createuser}
-                    disabled={loadder}
-                  >
-                    sign up
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        ) : (
-          <div className="login auth_form_box">
-            <form>
-              <div className="container">
-                <label htmlFor="email">
-                  <b>Email</b>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Email"
-                  name="email"
-                  required
-                  value={logininput.email}
-                  onChange={login}
-                />
-
-                <label htmlFor="psw">
-                  <b>Password</b>
-                </label>
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  name="pwd"
-                  required
-                  value={logininput.pwd}
-                  onChange={login}
-                />
-
-                <div className="clearfix">
-                  <button
-                    type="submit"
-                    className="signupbtn Auth_btn"
-                    disabled={loadder}
-                    onClick={Loginuser}
-                  >
-                    Login
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        )}
       </div>
     </div>
   );

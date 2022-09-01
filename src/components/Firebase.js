@@ -27,10 +27,11 @@ const storage = getStorage(app);
 const storiesData = collection(db, "stories");
 
 const posts = collection(db, `posts`);
+const msg = collection(db, `message`);
 
 // const auths = firebase.auth();
 // const storage = firebase.storage();
 
-export { db, auth, posts, storiesData, storage };
+export { db, auth, posts, storiesData, storage, msg };
 
 // const analytics = getAnalytics(app);

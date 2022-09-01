@@ -251,12 +251,12 @@ body {
 .profile_contaner {
   /* border: solid 2px red; */
 
-  padding: 2%;
+  padding: 1%;
   background-color: #ebe7e7;
 }
 .profile_box {
   width: 35vw;
-  padding: 2%;
+  padding: 1%;
 }
 .profile_section {
   background-color: #ffffff;

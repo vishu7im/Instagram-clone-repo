@@ -3,6 +3,7 @@ import Post from "./Post";
 import Stories from "./Stories";
 import { storiesData, posts } from "./Firebase";
 import { getDocs } from "firebase/firestore";
+import { AuthContext } from "../Context/UserContext";
 
 export default function Home() {
   const [stories, setstories] = useState([]);
@@ -56,7 +57,7 @@ export default function Home() {
           return (
             <Post
               avatar={data.avatar}
-              username={data.uid}
+              username={data.username}
               post={data.post}
               caption={data.caption}
               key={id}
